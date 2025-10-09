@@ -51,9 +51,6 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-import joblib
-
-joblib.dump(regressor, 'insurance_model.joblib')
 
 
 
