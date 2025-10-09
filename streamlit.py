@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from sklearn.preprocessing import StandardScaler
-sc=StandardScaler()
+
 
 with open('regressor.pkl','rb') as f:
     model_regressor=pickle.load(f)
@@ -37,7 +36,8 @@ region_southwest = 1 if region == "southwest" else 0
 
 
 input_data = np.array([[age, bmi, children, sex, smoker,region_northeast, region_northwest, region_southeast, region_southwest ]])
-input_data = sc.transform(input_data)
+
 if st.button("predict"):
    prediction = model_regressor.predict(input_data)
+
    st.success(f"prediction:{prediction}")
